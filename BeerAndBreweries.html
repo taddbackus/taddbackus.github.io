@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tadd Backus &amp; Austin Webb" />
 
-<meta name="date" content="2022-07-12" />
+<meta name="date" content="2022-07-14" />
 
 <title>Beer and Breweries</title>
 
@@ -270,7 +270,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Beer and Breweries</h1>
 <h4 class="author">Tadd Backus &amp; Austin Webb</h4>
-<h4 class="date">2022-07-12</h4>
+<h4 class="date">2022-07-14</h4>
 
 </div>
 
@@ -288,11 +288,22 @@ also looked at the differences between IPAs and other types of Ales.</p>
 beers and one for breweries, which were later combined into a single
 dataset.</p>
 </div>
+<div id="r-shiny-app" class="section level1">
+<h1>R Shiny App</h1>
+<ul>
+<li><a
+href="https://tbackus.shinyapps.io/BeerAndBreweriesApp/?_ga=2.232723359.1276683593.1657512002-1173303792.1657512002"><code>BeerAndBreweriesApp</code></a>
+The above app allows for plotting of histograms, boxplots, and scatter
+plots of the data and filter by state. It also shows the results of the
+kNN imputation. The datasets provided below are needed to run this
+app.</li>
+</ul>
+</div>
 <div id="github" class="section level1">
 <h1>GitHub</h1>
 <p>Our GitHub repository {<a
-href="https://github.com/tadbackus/beerAndBreweries"
-class="uri">https://github.com/tadbackus/beerAndBreweries</a>} has this
+href="https://github.com/taddbackus/beerAndBreweries"
+class="uri">https://github.com/taddbackus/beerAndBreweries</a>} has this
 code we used, as well as previously used code. There are also older
 versions of the PowerPoint that we created.</p>
 <ul>
@@ -337,20 +348,27 @@ the state with the most breweries is Colorado with 47 breweries.</p>
 <p>Here is where we merge the two datsets into one. We do this by
 merging on the ‘Brewery_id’ from the beer dataset and ‘Brew_ID’ from the
 brewery dataset.</p>
-<pre><code>##   Brewery_id        Name.x Beer_ID   ABV IBU                               Style
-## 1          1  Get Together    2692 0.045  50                        American IPA
-## 2          1 Maggie&#39;s Leap    2691 0.049  26                  Milk / Sweet Stout
-## 3          1    Wall&#39;s End    2690 0.048  19                   English Brown Ale
-## 4          1       Pumpion    2689 0.060  38                         Pumpkin Ale
-## 5          1    Stronghold    2688 0.060  25                     American Porter
-## 6          1   Parapet ESB    2687 0.056  47 Extra Special / Strong Bitter (ESB)
-##   Ounces             Name.y        City State
-## 1     16 NorthGate Brewing  Minneapolis    MN
-## 2     16 NorthGate Brewing  Minneapolis    MN
-## 3     16 NorthGate Brewing  Minneapolis    MN
-## 4     16 NorthGate Brewing  Minneapolis    MN
-## 5     16 NorthGate Brewing  Minneapolis    MN
-## 6     16 NorthGate Brewing  Minneapolis    MN</code></pre>
+<pre><code>##   Brewery_id        Name.x Beer_ID   ABV IBU
+## 1          1  Get Together    2692 0.045  50
+## 2          1 Maggie&#39;s Leap    2691 0.049  26
+## 3          1    Wall&#39;s End    2690 0.048  19
+## 4          1       Pumpion    2689 0.060  38
+## 5          1    Stronghold    2688 0.060  25
+## 6          1   Parapet ESB    2687 0.056  47
+##                                 Style Ounces             Name.y        City
+## 1                        American IPA     16 NorthGate Brewing  Minneapolis
+## 2                  Milk / Sweet Stout     16 NorthGate Brewing  Minneapolis
+## 3                   English Brown Ale     16 NorthGate Brewing  Minneapolis
+## 4                         Pumpkin Ale     16 NorthGate Brewing  Minneapolis
+## 5                     American Porter     16 NorthGate Brewing  Minneapolis
+## 6 Extra Special / Strong Bitter (ESB)     16 NorthGate Brewing  Minneapolis
+##   State
+## 1    MN
+## 2    MN
+## 3    MN
+## 4    MN
+## 5    MN
+## 6    MN</code></pre>
 <pre><code>##      Brewery_id                    Name.x Beer_ID   ABV IBU
 ## 2405        556             Pilsner Ukiah      98 0.055  NA
 ## 2406        557  Heinnieweisse Weissebier      52 0.049  NA
@@ -392,8 +410,8 @@ each column.</p>
 <div id="plotting-missing-values" class="section level2">
 <h2>Plotting missing values</h2>
 <p>We now look at a visually appealing way to see the missing data</p>
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use
-## `guide = &quot;none&quot;` instead.</code></pre>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please
+## use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="BeerAndBreweries_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="categorizing-beer-type" class="section level2">
